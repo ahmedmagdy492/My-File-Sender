@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "DNS Resolver";
+}
+
+<style>
+    .table-darkBGImg
+    {
+        background: #1E283D url("imgs/dashboard/darkBG.png") repeat-y right top
+    }
+</style>
+
+<section style="height: 60vh;margin-top: 50px;">
+
+    <div class="row flex-grow">
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card card-rounded table-darkBGImg">
+                <div class="card-body">
+                    <div class="col-sm-12">
+                        <h3 class="text-white upgrade-info mb-0">
+                            Get Access to Tons of <span class="fw-bold">Features</span> of FTP Client
+                        </h3>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-info upgrade-btn">Buy Now!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card my-4 text-center">
+        <div class="card-body">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Domain Name" autofocus id="domainInput" onkeydown="resolveEnter(event)" />
+            </div>
+
+            <div class="form-group mt-4">
+                <button class="btn btn-info" onclick="resolve()" id="btnResolve">Resolve</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="list">
+
+    </div>
+</section>
+
+@section Scripts
+{
+    <script src="~/js/custom/Dns.js"></script>
+}

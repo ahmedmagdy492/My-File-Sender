@@ -1,0 +1,12 @@
+﻿
+
+<div class="container mt-4">
+    @if(TempData["ErrorMsg"] != null)
+    {
+        <h3 class="alert alert-danger">@TempData["ErrorMsg"]</h3>
+    }
+    else
+    {
+        <h3 class="alert alert-danger">Sorry, Unexpected Error Occured</h3>
+    }
+</div>

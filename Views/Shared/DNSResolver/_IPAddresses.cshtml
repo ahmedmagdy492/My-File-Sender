@@ -1,0 +1,26 @@
+﻿@using System.Net
+
+@model List<IPAddress>
+
+@{
+    Layout = null;
+}
+
+<div class="card">
+    <div class="card-body">
+        @if(Model == null || Model.Count == 0)
+        {
+            <h4 class="text-center mt-4">
+                No Matches were Found
+            </h4>
+        }
+        else
+        {
+            <h3>IP Addresses:</h3>
+            @foreach(var ip in Model)
+            {
+                <h5>@ip</h5>
+            }
+        }
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@using Helpers
+
+@{
+    ViewData["Title"] = "Connect to Mobile";
+    string ipAddress = new IPHelper().GetMyIPAddress();
+}
+
+<div class="card my-5">
+    <div class="card-body my-5">
+        <div class="d-flex justify-content-center" id="qrcode-container" style="height: 250px;">
+            <img width="50" height="50" src="~/imgs/​​Iphone-spinner-1.gif" draggable="false" />
+        </div>
+        <h4 class="text-center mt-2">Scan the QR Code above to Connect</h4>
+        <div style="width: 35%;" class="m-auto">
+            <h5>How to Connect to Your PC:</h5>
+            <ol>
+                <li>Open FTP Client on your Phone</li>
+                <li>Select Files from your Phone</li>
+                <li>Tab on the Send Button</li>
+                <li>Scan the QR Code to connect and send</li>
+                <li>Wait a little bit and then you are done</li>
+            </ol>
+            <b>Note: you will find your files under a folder called Received</b>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Custom/mobile.js"></script>
+}

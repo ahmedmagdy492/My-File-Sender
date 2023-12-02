@@ -1,0 +1,82 @@
+Edited by me
+FTP Client:
+-Application Type:
+Web Application
+
+-Tech Stack:
+Asp.net 8.0 (Back-End)
+Javascript - Html - Css (Front-End)
+Database - Sqlite for saving previous connections
+
+High-Level Overview:
+Main Features:
+1.to be able to view files and traverse directories on the remote server
+2.to be able to download a file from the remote server
+3.to be able to upload a file to the remote server
+
+Conceptual Design:
+User Stories:
+-as a user i want to be able to connect to a remote FTP Server using the control panel
+-as a user i want to be able to save my credentials for a specific connection
+-as a user i want to be able to see my previus connections on the control panel
+-as a user i want to see list of the folders and files on the remote server
+-as a user i want to be able to download a file from the remote server
+-as a user i want to be able to upload a file of any type on the remote server
+
+Simple Flow:
+1.Connect to a Server (enter ip and port(default: 21))
+2.Enter username and password (if exist)
+3.Get All Files on the server
+
+Objects:
+Controllers:
+--ConnectionSession
+ Relations:
+ -SFTPClient
+
+--ControlPanel
+ Relations:
+ -DBRepo
+
+Helpers:
+-SFTPClient
+-DBRepo
+-ConfigReader
+-FileLogger
+
+Next Step:
+1.Techincal Design:
+-Class Diagram (Behaviors)
+-Relations and Types of Relations
+2.Sequence Diagram
+
+ConnectionSession:
+-Connect:
+1.connect to the remote server
+2.get the list of the directories
+3.put the username and the password in a Session
+
+-DownloadFile:
+1.connect to the remote server
+2.get the bytes of the downloaded file
+3.save the file locally
+4.read the files and dirs in the local file system of the given path
+5.return success and the files read locallay and refresh the local file system view
+
+-UplaodFile:
+1.connect to the remote server
+2.read the file from the specifed path and gets the bytes
+3.sends the file to the remote server
+4.get the files from the remote server of the given path
+5.return the result to client, refresh the remote server view
+
+-NavigateDirRemote:
+1.connect to the remote server
+2.get the list of files of the specifed path
+3.return the list of files to the client
+4.the client will refersh the view either the local or the remote
+
+-NavigateDirLocal:
+1.get the list of files of the specifed path locally
+2.return the list of files to the client
+3.the client will refersh the view either the local or the remote
